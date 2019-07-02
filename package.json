@@ -12,6 +12,7 @@
   "dependencies": {
     "fast-csv": "^2.5.0",
     "fs": "^0.0.1-security",
+    "write": "^1.0.3",
     "yarn": "^1.16.0"
   }
 }
