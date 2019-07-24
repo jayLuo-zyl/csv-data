@@ -19,7 +19,7 @@ const writeFile = require('write');
 (async () => {
     let count = 0;
     let newTxt = ''
-    const stream = await csv.fromPath("prod.csv").on("data", data => {
+    const stream = await csv.parseFile("prod.csv").on("data", data => {
         newTxt = newTxt + "'" + data[0].trim() + "',\n"
         count++;
     }).on("end", () => {
@@ -28,4 +28,4 @@ const writeFile = require('write');
                 console.log(`Task completed with ${count} records processed.`);
             });
     });
-})()
+})().catch(err=> setImmediate(()=>{ throw err }));
